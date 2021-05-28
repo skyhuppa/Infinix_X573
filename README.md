@@ -36,6 +36,6 @@ Features|	Dual-LED flash, panorama, HDR
 Video	|1080p@30fps
 
 
-## Device picture
+## Infinix-X573 Image
 
 ![Infinix Hot S3/Infinix-X573](https://droidafrica.net/wp-content/uploads/2019/01/infinix-hot-s3-32gb-sandstone-black-3gb-ram-3-600x600.jpg "Infinix Hot S3/Infinix-X573")
