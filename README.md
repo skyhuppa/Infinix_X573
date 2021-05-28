@@ -1,5 +1,6 @@
 
-TWRP device configuration for Xiaomi Redmi 3S/Prime/3X
+Though the device bootloader is locked but it has been rooted and running customized 
+              TWRP recovery image
 =============================
 
 INFINIX HOT S3 (codenamed _"Infinix-X573"_) released in 2018
