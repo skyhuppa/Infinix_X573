@@ -1,5 +1,5 @@
 
-Though the device bootloader is locked but it has been rooted and running customized 
+Though the device bootloader is locked but it has been rooted and running
               TWRP recovery image
 =============================
 
