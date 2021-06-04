@@ -17,4 +17,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-     $(LOCAL_DIR)/omni_Infinix-X573.mk
+     $(LOCAL_DIR)/omni_X573.mk
