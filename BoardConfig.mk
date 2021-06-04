@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/Infinix/Infinix-X573
+DEVICE_PATH := device/Infinix/X573
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -37,7 +37,7 @@ TARGET_BOARD_SUFFIX := _64
 TARGET_USES_64_BIT_BINDER := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := Infinix-X573
+TARGET_OTA_ASSERT_DEVICE := X573
 
 # File systems
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -62,8 +62,8 @@ BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/infinix/Infinix-X573
-TARGET_KERNEL_CONFIG := Infinix-X573_defconfig
+TARGET_KERNEL_SOURCE := kernel/infinix/X573
+TARGET_KERNEL_CONFIG := X573_defconfig
 
 # Ramdisk compression
 LZMA_RAMDISK_TARGETS := recovery
