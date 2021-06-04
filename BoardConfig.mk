@@ -67,6 +67,11 @@ TARGET_KERNEL_CONFIG := X573_defconfig
 
 # Ramdisk compression
 LZMA_RAMDISK_TARGETS := recovery
+@@ -81,4 +78,4 @@ TW_THEME := portrait_hdpi
+TW_EXTRA_LANGUAGES := true
+TW_SCREEN_BLANK_ON_BOOT := true
+TW_INPUT_BLACKLIST := "hbtp_vm"
+TW_USE_TOOLBOX := true
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8937
