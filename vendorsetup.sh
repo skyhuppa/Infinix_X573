@@ -16,5 +16,5 @@
 # limitations under the License.
 #
 
-add_lunch_combo omni_Infinix-X573-userdebug
-add_lunch_combo omni_Infinix-X573-eng
+add_lunch_combo omni_X573-userdebug
+add_lunch_combo omni_X573-eng
