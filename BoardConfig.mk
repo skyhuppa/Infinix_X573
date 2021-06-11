@@ -69,6 +69,16 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/infinix/X573
 TARGET_KERNEL_CONFIG := X573_defconfig
 
+#AVB: support chain partition signing
+BOARD_AVB_ENABLE := true
+BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
+
+#The following build variables are required to enable chain partition for recovery partition
+BOARD_AVB_RECOVERY_KEY_PATH := path/to/recovery_private_key
+BOARD_AVB_RECOVERY_ALGORITHM := SHA512_RSA8192
+BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
+BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 2
+
 # Ramdisk compression
 LZMA_RAMDISK_TARGETS := recovery
 
