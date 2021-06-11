@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/Infinix/X573
+DEVICE_PATH := device/infinix/Infinix_X573
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -41,7 +41,7 @@ TARGET_BOOTLOADER_BOARD_NAME :=msm8937
 TARGET_NO_BOOTLOADER :=true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := X573
+TARGET_OTA_ASSERT_DEVICE := Infinix_X573
 
 # File systems
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -71,8 +71,8 @@ BOARD_MKBOOTIMG_ARGS += --sigtype $(BOARD_KERNEL_SIGTYPE)
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/infinix/X573
-TARGET_KERNEL_CONFIG := X573_defconfig
+TARGET_KERNEL_SOURCE := kernel/infinix/Infinix_X573
+TARGET_KERNEL_CONFIG := Infinix_X573_defconfig
 
 #AVB: support chain partition signing. The following build variables are required to enable chain partition for recovery partition
 BOARD_AVB_ENABLE := true
