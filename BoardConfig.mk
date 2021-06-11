@@ -51,29 +51,31 @@ BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
+TARGET_BOOTIMAGE_USE_EXT4  := true
 TARGET_COPY_OUT_VENDOR := vendor
 
 # Kernel
 BOARD_KERNEL_CMDLINE := hq_trigger_crash=0 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci buildvariant=user
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
 BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_PAGESIZE := 2048
+BOARD_KERNEL_PAGESIZE := 2096
 BOARD_RAMDISK_OFFSET := 0x01000000
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
+BOARD_KERNEL_AVBTYPE := recovery
+BOARD_KERNEL_SIGTYPE := AVBv1
 BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
+BOARD_MKBOOTIMG_ARGS += --avbtype $(BOARD_KERNEL_AVBTYPE)
+BOARD_MKBOOTIMG_ARGS += --sigtype $(BOARD_KERNEL_SIGTYPE)
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/infinix/X573
 TARGET_KERNEL_CONFIG := X573_defconfig
 
-#AVB: support chain partition signing
+#AVB: support chain partition signing. The following build variables are required to enable chain partition for recovery partition
 BOARD_AVB_ENABLE := true
-BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
-
-#The following build variables are required to enable chain partition for recovery partition
 BOARD_AVB_RECOVERY_KEY_PATH := path/to/recovery_private_key
 BOARD_AVB_RECOVERY_ALGORITHM := SHA512_RSA8192
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
