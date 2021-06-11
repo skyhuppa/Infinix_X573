@@ -75,10 +75,6 @@ TARGET_KERNEL_CONFIG := Infinix_X573_defconfig
 
 #AVB: support chain partition signing. The following build variables are required to enable chain partition for recovery partition
 BOARD_AVB_ENABLE := true
-BOARD_AVB_RECOVERY_KEY_PATH := path/to/recovery_private_key
-BOARD_AVB_RECOVERY_ALGORITHM := SHA512_RSA8192
-BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
-BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 2
 
 # Ramdisk compression
 LZMA_RAMDISK_TARGETS := recovery
