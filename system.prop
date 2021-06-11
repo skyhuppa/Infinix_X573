@@ -1,0 +1,9 @@
+ro.product.brand=Infinix
+ro.product.name=Infinix_X573
+ro.product.device=Infinix_X573
+ro.product.mod_device=Infinix_X573_global
+ro.build.product=Infinix_X573
+ro.treble.enabled=true
+sys.usb.controller=a800000.dwc3
+sys.usb.rndis.func.name=rndis_bam
+sys.usb.rmnet.func.name=rmnet_bam
