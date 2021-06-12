@@ -58,6 +58,10 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 TARGET_COPY_OUT_VENDOR := vendor
 
+# Etra folders
+BOARD_ROOT_EXTRA_FOLDERS := bt_firmware dsp firmware persist
+BOARD_SUPPRESS_SECURE_ERASE := true
+
 # Kernel
 BOARD_KERNEL_CMDLINE := hq_trigger_crash=0 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci buildvariant=user
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
