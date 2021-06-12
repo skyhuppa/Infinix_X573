@@ -74,6 +74,8 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/infinix/Infinix_X573
 TARGET_KERNEL_CONFIG := Infinix_X573_defconfig
 
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery.fstab
+
 #AVB: support chain partition signing. The following build variables are required to enable chain partition for recovery partition
 #BOARD_AVB_ENABLE := true
 BOARD_USES_FULL_RECOVERY_IMAGE := true
