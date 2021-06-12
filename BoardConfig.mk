@@ -62,7 +62,7 @@ TARGET_COPY_OUT_VENDOR := vendor
 BOARD_KERNEL_CMDLINE := hq_trigger_crash=0 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci buildvariant=user
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
 BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_PAGESIZE := 2096
+BOARD_KERNEL_PAGESIZE := 4096
 BOARD_RAMDISK_OFFSET := 0x01000000
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
@@ -75,10 +75,10 @@ TARGET_KERNEL_SOURCE := kernel/infinix/Infinix_X573
 TARGET_KERNEL_CONFIG := Infinix_X573_defconfig
 
 #AVB: support chain partition signing. The following build variables are required to enable chain partition for recovery partition
-#BOARD_AVB_ENABLE := true
-#BOARD_USES_FULL_RECOVERY_IMAGE := true
-#PRODUCT_SUPPORTS_BOOT_SIGNER := true
-#PRODUCT_SUPPORTS_RECOVERY_SIGNER := true
+BOARD_AVB_ENABLE := true
+BOARD_USES_FULL_RECOVERY_IMAGE := true
+PRODUCT_SUPPORTS_BOOT_SIGNER := true
+PRODUCT_SUPPORTS_RECOVERY_SIGNER := true
 
 # Ramdisk compression
 LZMA_RAMDISK_TARGETS := recovery
