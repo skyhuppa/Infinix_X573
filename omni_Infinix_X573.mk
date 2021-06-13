@@ -32,3 +32,8 @@ PRODUCT_NAME := omni_Infinix_X573
 PRODUCT_BRAND := Infinix
 PRODUCT_MODEL := Infinix X573
 PRODUCT_MANUFACTURER := Infinix Mobility Limited
+
+# AVB
+PRODUCT_SUPPORTS_BOOT_SIGNER := true
+PRODUCT_VERITY_SIGNING_KEY := build/target/product/security/verity
+
