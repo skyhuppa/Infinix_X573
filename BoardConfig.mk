@@ -38,7 +38,7 @@ TARGET_USES_64_BIT_BINDER := true
 
 #Bootloader
 TARGET_BOOTLOADER_BOARD_NAME :=msm8937
-TARGET_NO_BOOTLOADER :=true
+#TARGET_NO_BOOTLOADER :=true
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := Infinix_X573
@@ -75,8 +75,8 @@ BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/infinix/Infinix_X573
-TARGET_KERNEL_CONFIG := Infinix_X573_defconfig
+#TARGET_KERNEL_SOURCE := kernel/infinix/Infinix_X573
+#TARGET_KERNEL_CONFIG := Infinix_X573_defconfig
 
 #AVB: support chain partition signing. The following build variables are required to enable chain partition for recovery partition
 #BOARD_AVB_ENABLE := true
