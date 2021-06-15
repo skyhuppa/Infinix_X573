@@ -1,6 +1,7 @@
 # Hot-S3-Infinix-X573-device
 
 #CREDIT
+
 #Sebastiano Barezzi (SebaUbuntu)__|>Compiling base Twrp tree for Infinix-X573 device
 
 #HamanthJabalpuri ________________|>For bulding stable twrp for Infinix_X573 device
