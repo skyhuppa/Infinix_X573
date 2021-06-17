@@ -4,6 +4,7 @@ ro.product.device=Infinix_X573
 ro.product.mod_device=Infinix_X573_global
 ro.build.product=Infinix_X573
 ro.treble.enabled=true
+ro.build.fingerprint=Infinix/QL1668/Infinix-X573:8.0.0/OPR1.170623.032/DEF-191126V57:user/release-keys
 sys.usb.controller=a800000.dwc3
 sys.usb.rndis.func.name=rndis_bam
 sys.usb.rmnet.func.name=rmnet_bam
