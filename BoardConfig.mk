@@ -81,10 +81,6 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 #AVB: support chain partition signing. The following build variables are required to enable chain partition for recovery partition
 #BOARD_AVB_ENABLE := true
 #BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
-#BOARD_USES_FULL_RECOVERY_IMAGE := true
-#PRODUCT_SUPPORTS_BOOT_SIGNER := true
-#PRODUCT_SUPPORTS_RECOVERY_SIGNER := true
-#PRODUCT_VERITY_SIGNING_KEY := build/target/product/security/verity
 
 # Ramdisk compression
 LZMA_RAMDISK_TARGETS := recovery
