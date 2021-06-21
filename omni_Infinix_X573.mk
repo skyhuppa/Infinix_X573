@@ -33,7 +33,17 @@ PRODUCT_BRAND := Infinix
 PRODUCT_MODEL := Infinix X573
 PRODUCT_MANUFACTURER := Infinix Mobility Limited
 
+# enable stock zip packages flash
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.secure=1 \
+    ro.adb.secure=0 \
+    ro.allow.mock.location=0 \
+    ro.hardware.keystore=msm8937
 
+# Blacklist Properties
+PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
+    ro.build.date \
+    ro.build.date.utc
 
 # Verity 
 PRODUCT_SUPPORTS_BOOT_SIGNER := true
