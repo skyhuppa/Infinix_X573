@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/infinix/Infinix_X573
+DEVICE_PATH := device/Infinix_X573/Infinix_X573
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -75,7 +75,7 @@ BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-#TARGET_KERNEL_SOURCE := kernel/infinix/Infinix_X573
+#TARGET_KERNEL_SOURCE := kernel/Infinix_X573/Infinix_X573
 #TARGET_KERNEL_CONFIG := Infinix_X573_defconfig
 
 #AVB: support chain partition signing. 
