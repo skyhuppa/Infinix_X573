@@ -16,5 +16,5 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/Infinix_X573/Infinix_X573
+LOCAL_PATH := device/Infinix/Infinix-X573
 
