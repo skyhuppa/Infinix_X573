@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/Infinix_X573/Infinix_X573
+DEVICE_PATH := device/Infinix/Infinix-X573
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -41,7 +41,7 @@ TARGET_BOOTLOADER_BOARD_NAME :=msm8937
 #TARGET_NO_BOOTLOADER :=true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := Infinix_X573
+TARGET_OTA_ASSERT_DEVICE := Infinix-X573
 
 # File systems
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -75,8 +75,8 @@ BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-#TARGET_KERNEL_SOURCE := kernel/Infinix_X573/Infinix_X573
-#TARGET_KERNEL_CONFIG := Infinix_X573_defconfig
+#TARGET_KERNEL_SOURCE := kernel/Infinix/Infinix-X573
+#TARGET_KERNEL_CONFIG := Infinix-X573_defconfig
 
 #AVB: support chain partition signing. 
 #BOARD_AVB_ENABLE := true
