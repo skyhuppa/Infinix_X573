@@ -18,6 +18,6 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(filter Infinix_X573,$(TARGET_DEVICE)),)
+ifeq ($(filter Infinix-X573,$(TARGET_DEVICE)),)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 endif
