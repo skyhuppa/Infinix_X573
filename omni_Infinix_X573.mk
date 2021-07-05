@@ -28,7 +28,7 @@ $(call inherit-product, vendor/omni/config/gsm.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := Infinix_X573
-PRODUCT_NAME := omni_Infinix
+PRODUCT_NAME := omni_Infinix_X573
 PRODUCT_BRAND := Infinix
 PRODUCT_MODEL := Infinix X573
 PRODUCT_MANUFACTURER := Infinix Mobility Limited
