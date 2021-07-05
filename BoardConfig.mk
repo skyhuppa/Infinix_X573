@@ -76,7 +76,7 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 #TARGET_KERNEL_SOURCE := kernel/Infinix/Infinix_X573
-#TARGET_KERNEL_CONFIG := Infinix-X573_defconfig
+#TARGET_KERNEL_CONFIG := Infinix_X573_defconfig
 
 #AVB: support chain partition signing. 
 #BOARD_AVB_ENABLE := true
