@@ -25,13 +25,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 $(call inherit-product, vendor/twrp/config/common.mk)
 # $(call inherit-product, vendor/twrp/config/gsm.mk)
 
-# Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := Infinix_X573
-PRODUCT_NAME := twrp_Infinix_X573
-PRODUCT_BRAND := Infinix
-PRODUCT_MODEL := Infinix X573
-PRODUCT_MANUFACTURER := Infinix Mobility Limited
-
 # enable stock zip packages flash
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.secure=1 \
