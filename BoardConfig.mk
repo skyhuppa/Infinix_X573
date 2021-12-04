@@ -83,6 +83,19 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 #BOARD_AVB_ENABLE := true
 #BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 
+# Additional binaries & libraries needed for recovery
+     TARGET_RECOVERY_DEVICE_MODULES += \
+     libkeymaster4 \
+     libpuresoftkeymasterdevice \
+     ashmemd_aidl_interface-cpp \
+     libashmemd_client
+
+  TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
+   $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so \
+   $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so \
+   $(TARGET_OUT_SHARED_LIBRARIES)/ashmemd_aidl_interface-cpp.so \
+   $(TARGET_OUT_SHARED_LIBRARIES)/libashmemd_client.so
+   
 # Ramdisk compression
 LZMA_RAMDISK_TARGETS := recovery
 
@@ -91,12 +104,13 @@ TW_SCREEN_BLANK_ON_BOOT := true
 TW_EXTRA_LANGUAGES := true
 TW_THEME := portrait_hdpi
 TW_INCLUDE_CRYPTO := true
-TW_MAX_BRIGHTNESS := 255
+TW_MAX_BRIGHTNESS := 2047
+TW_DEFAULT_BRIGHTNESS := 1200
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_SCREEN_BLANK_ON_BOOT := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-BOARD_SUPPRESS_SECURE_ERASE := true
+TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
 RECOVERY_SDCARD_ON_DATA := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TWRP_INCLUDE_LOGCAT := true
@@ -104,9 +118,15 @@ TARGET_USES_LOGD := true
 TW_USE_TOOLBOX := true
 TW_EXCLUDE_TWRPAPP := true
 TW_INCLUDE_NTFS_3G := true
+TW_Y_OFFSET := 80
+TW_H_OFFSET := -80
 
 # Disable Mouse Cursor
 TW_INPUT_BLACKLIST := "hbtp_vm"
+
+# resetprop and magiskboot
+TW_INCLUDE_RESETPROP := true
+TW_INCLUDE_REPACKTOOLS := true
 
 # exFAT FS Support
 TW_INCLUDE_FUSE_EXFAT := true
@@ -120,7 +140,7 @@ VENDOR_SECURITY_PATCH := 2099-12-31
 PLATFORM_VERSION := 16.1.0
 
 # PBRP Build Flags
-PB_DISABLE_DEFAULT_TREBLE_COMP := true
-PB_TORCH_PATH := /proc/qcom_flash
-PB_TORCH_MAX_BRIGHTNESS := 1
-PB_DISABLE_DEFAULT_DM_VERITY := true
+# PB_DISABLE_DEFAULT_TREBLE_COMP := true
+# PB_TORCH_PATH := /proc/qcom_flash
+# PB_TORCH_MAX_BRIGHTNESS := 1
+# PB_DISABLE_DEFAULT_DM_VERITY := true
