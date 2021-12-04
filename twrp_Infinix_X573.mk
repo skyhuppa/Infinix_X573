@@ -25,12 +25,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 $(call inherit-product, vendor/twrp/config/common.mk)
 # $(call inherit-product, vendor/twrp/config/gsm.mk)
 
-# enable stock zip packages flash
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.secure=1 \
-    ro.adb.secure=0 \
-    ro.allow.mock.location=0 \
-    ro.hardware.keystore=msm8937
+
 
 # HACK: Set vendor patch level
 PRODUCT_PROPERTY_OVERRIDES += \
