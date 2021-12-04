@@ -1,3 +1,7 @@
+ro.secure=1 
+ro.adb.secure=0 
+ro.allow.mock.location=0 
+ro.hardware.keystore=msm8937
 ro.product.brand=Infinix
 ro.product.name=Infinix_X573
 ro.product.device=Infinix_X573
