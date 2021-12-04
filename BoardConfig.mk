@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/infinix/Infinix_X573
+DEVICE_PATH := device/Infinix/Infinix_X573
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
