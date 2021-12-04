@@ -25,7 +25,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 $(call inherit-product, vendor/twrp/config/common.mk)
 # $(call inherit-product, vendor/twrp/config/gsm.mk)
 
-
+# Device identifier. This must come after all inclusions
+PRODUCT_DEVICE := Imfinix_X573
+PRODUCT_NAME := twrp_Infinix_X573
+PRODUCT_BRAND := Infinix
+PRODUCT_MODEL := Infinix Hot S 3
+PRODUCT_MANUFACTURER := INFINIX MOBILITY LIMITED
 
 # HACK: Set vendor patch level
 PRODUCT_PROPERTY_OVERRIDES += \
