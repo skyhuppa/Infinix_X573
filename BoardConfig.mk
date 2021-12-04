@@ -56,7 +56,7 @@ BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_USERIMAGES_USE_F2FS := true
+# TARGET_USERIMAGES_USE_F2FS := true
 TARGET_COPY_OUT_VENDOR := vendor
 
 # Etra folders
@@ -80,8 +80,8 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 #TARGET_KERNEL_CONFIG := Infinix_X573_defconfig
 
 #AVB: support chain partition signing. The following build variables are required to enable chain partition for recovery partition
-#BOARD_AVB_ENABLE := true
-#BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
+# BOARD_AVB_ENABLE := true
+# BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 
 # Additional binaries & libraries needed for recovery
      TARGET_RECOVERY_DEVICE_MODULES += \
