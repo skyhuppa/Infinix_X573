@@ -17,12 +17,12 @@
 #
 
 # Inherit from those products. Most specific first.
-# $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
-# $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
+$ {call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$ (call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
+$ (call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
 # Inherit some common twrp stuff.
-$(call inherit-product, vendor/twrp/config/common.mk)
+$ (call inherit-product, vendor/twrp/config/common.mk)
 # $(call inherit-product, vendor/twrp/config/gsm.mk)
 
 # Device identifier. This must come after all inclusions
