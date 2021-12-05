@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/infinix/S3
+DEVICE_PATH := device/infinix/Infinix-X573
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -42,7 +42,7 @@ TARGET_BOOTLOADER_BOARD_NAME :=msm8937
 #TARGET_NO_BOOTLOADER :=true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := S3
+TARGET_OTA_ASSERT_DEVICE := Infinix-X573
 
 # File systems
 BOARD_HAS_LARGE_FILESYSTEM := true
