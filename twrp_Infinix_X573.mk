@@ -17,11 +17,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
  	# $(LOCAL_PATH)/prebuilt/dtb:dtb.img
  
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := Infinix_X573
-PRODUCT_NAME := twrp_Infinix_X573
+PRODUCT_DEVICE := HotX573
+PRODUCT_NAME := twrp_HotX573
 PRODUCT_BRAND := infinix
 PRODUCT_MODEL := Hot S 3
-PRODUCT_MANUFACTURER := infinix
+PRODUCT_MANUFACTURER := INFINIX MOBILITY LIMITED
 
 # Dynamic
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
