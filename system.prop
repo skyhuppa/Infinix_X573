@@ -1,5 +1,6 @@
 ro.secure=1 
 ro.adb.secure=0 
+ro.treble.enabled=true
 ro.allow.mock.location=0 
 ro.hardware.keystore=msm8937
 ro.product.product.device=Infinix-X573
