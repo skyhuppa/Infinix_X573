@@ -29,7 +29,7 @@ $ (call inherit-product, vendor/twrp/config/common.mk)
 PRODUCT_DEVICE := Infinix_X573
 PRODUCT_NAME := twrp_Infinix_X573
 PRODUCT_BRAND := infinix
-PRODUCT_MODEL := Infinix Hot S 3
+PRODUCT_MODEL := Infinix X573
 PRODUCT_MANUFACTURER := INFINIX MOBILITY LIMITED
 
 # HACK: Set vendor patch level
