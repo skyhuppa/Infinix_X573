@@ -37,7 +37,7 @@ TARGET_2ND_CPU_VARIANT := generic
 TARGET_BOARD_SUFFIX := _64
 TARGET_USES_64_BIT_BINDER := true
 
-#Bootloader
+# Bootloader
 TARGET_BOOTLOADER_BOARD_NAME :=msm8937
 TARGET_NO_BOOTLOADER :=true
 
@@ -54,8 +54,14 @@ BOARD_VENDORIMAGE_PARTITION_SIZE := 107374824
 BOARD_SYSTEMIMAGE_PARTITION_TYPE := ext4
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4# TARGET_USERIMAGES_USE_F2FS := true
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+
+
+# Workaround for error copying vendor files to recovery ramdisk
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_VENDOR := vendor
+
+
 
 # Etra folders
 BOARD_ROOT_EXTRA_FOLDERS := bt_firmware dsp firmware persist
@@ -76,9 +82,9 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 
-#AVB: support chain partition signing. The following build variables are required to enable chain partition for recovery partition
-# BOARD_AVB_ENABLE := true
-# BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
+# AVB:
+ BOARD_AVB_ENABLE := true
+ BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 
 # Additional binaries & libraries needed for recovery
      TARGET_RECOVERY_DEVICE_MODULES += \
