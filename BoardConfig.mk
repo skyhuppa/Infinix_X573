@@ -64,8 +64,9 @@ BOARD_ROOT_EXTRA_FOLDERS := bt_firmware dsp firmware persist
 BOARD_SUPPRESS_SECURE_ERASE := true
 
 # Kernel
-BOARD_KERNEL_CMDLINE := hq_trigger_crash=0 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci buildvariant=user
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
+BOARD_KERNEL_CMDLINE := hq_trigger_crash=0 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci 
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive buildvariant=user
+TARGET_PREBUILT_KERNEL := BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive andrDEVICE_PATH)/prebuilt/Image.gz-dtb
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_RAMDISK_OFFSET := 0x01000000
