@@ -17,6 +17,6 @@
 #
 
 PRODUCT_MAKEFILES := \
-     $(LOCAL_DIR)/twrp_InfinixX573.mk
+     $(LOCAL_DIR)/twrp_Infinix_X573.mk
      
      
