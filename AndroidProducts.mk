@@ -17,6 +17,6 @@
 #
 
 PRODUCT_MAKEFILES := \
-     $(LOCAL_DIR)/twrp_Infinix_X573.mk
+     $(LOCAL_DIR)/twrp_InfinixX573.mk
      
-     COMMON_LUNCH_CHOICES := twrp_Infinix_X573-eng
+     
