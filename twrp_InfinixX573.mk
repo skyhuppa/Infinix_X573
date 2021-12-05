@@ -27,7 +27,7 @@ $ (call inherit-product, vendor/twrp/config/common.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := InfinixX573
-PRODUCT_NAME := twrp_Infinix573
+PRODUCT_NAME := twrp_InfinixX573
 PRODUCT_BRAND := infinix
 PRODUCT_MODEL := Infinix Hot S 3
 PRODUCT_MANUFACTURER := INFINIX MOBILITY LIMITED
