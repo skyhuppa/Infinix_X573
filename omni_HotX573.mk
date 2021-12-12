@@ -11,7 +11,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 # $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
 # Inherit some common Omni stuff.
- $(call inherit-product, vendor/omni/config/common.mk)
+ $(call inherit-product, vendor/pb/config/common.mk)
 
 #  PRODUCT_COPY_FILES += $(LOCAL_PATH)/recovery/root,recovery/root)
 #	$(LOCAL_PATH)/prebuilt/dtb:dtb.img
