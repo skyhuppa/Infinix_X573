@@ -19,7 +19,7 @@
 DEVICE_PATH := device/infinix/HotX573
 
 # For building with minimal manifest
-ALLOW_MISSING_DEPENDENCIES := true
+# ALLOW_MISSING_DEPENDENCIES := true
 BUILD_BROKEN_DUP_RULES := true
 
 # Architecture
