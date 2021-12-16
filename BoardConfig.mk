@@ -37,9 +37,17 @@ TARGET_2ND_CPU_VARIANT := generic
 TARGET_BOARD_SUFFIX := _64
 TARGET_USES_64_BIT_BINDER := true
 
+# Platform
+TARGET_BOARD_PLATFORM := msm8937
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno505
+TARGET_BOARD_SUFFIX := _64
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME :=msm8937
 TARGET_NO_BOOTLOADER :=true
+
+# Qualcomm support
+BOARD_USES_QCOM_HARDWARE := true
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := HotX573
@@ -58,9 +66,7 @@ BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_VENDOR := vendor
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/etc/recovery.fstab
 BOARD_HAS_NO_SELECT_BUTTON := true
-
 
 # Etra folders
 BOARD_ROOT_EXTRA_FOLDERS := bt_firmware dsp firmware persist
