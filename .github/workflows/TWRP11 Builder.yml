@@ -35,7 +35,7 @@ jobs:
 
     steps:
       - name: "Cleanup Environment"
-        uses: actions/checkout@v1
+        uses: rokibhasansagar/slimhub_actions@main
 
       - name: Initializing environment
         run: |
