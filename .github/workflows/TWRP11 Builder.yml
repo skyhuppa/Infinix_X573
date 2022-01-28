@@ -4,15 +4,15 @@ on:
   workflow_dispatch:
     inputs:
       crypto:
-        description: "是否禁用加密模块，true or false"
+        description: "Whether to disable the encryption modules, true or false"
         required: false
         default: "false"
       Enable_cache:
-        description: "是否启用cache，true or false"
+        description: "Whether to enable cache，true or false"
         required: true
         default: "true"
       Delete_oldReleases:
-        description: "是否删除旧的发布，true or false"
+        description: "whether to delete old releases，true or false"
         required: false
         default: "false"
 env:
@@ -91,7 +91,7 @@ jobs:
         uses: alexjurkiewicz/setup-ccache@master
         if: (github.event.inputs.Enable_cache == 'true' && github.event.inputs.Enable_cache  != 'false') || contains(github.event.action, 'Enable_cache')
         with:
-          max-size: 5G
+          max-size: 10G
           extra-config: |
             keep_comments_cpp = true
       - name: Build ${{env.Rec_name}}
