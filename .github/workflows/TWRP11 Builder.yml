@@ -91,7 +91,7 @@ jobs:
         uses: alexjurkiewicz/setup-ccache@master
         if: (github.event.inputs.Enable_cache == 'true' && github.event.inputs.Enable_cache  != 'false') || contains(github.event.action, 'Enable_cache')
         with:
-          max-size: 5G
+          max-size: 10G
           extra-config: |
             keep_comments_cpp = true
       - name: Build ${{env.Rec_name}}
@@ -143,16 +143,27 @@ jobs:
           name: ${{env.Rec_name}}_for_${{env.device}}-${{github.run_id}}
           path: ${{steps.info.outputs.OutFolder}}/*.img
 
-      - name: Upload 
+      - name: Upload Release
         uses: softprops/action-gh-release@master
         with:
           files: |
             ${{steps.info.outputs.OutFolder}}/${{env.Rec_name}}_for_${{env.device}}_by_${{env.Author}}.zip
             ${{steps.info.outputs.OutFolder}}/*.img
           name: ${{env.Rec_name}}-${{env.device}}-${{github.run_id}}
+          tag_name: ${{env.device}}-${{env.Rec_name}}-${{steps.info.outputs.date}}
           body: |
             ${{env.Rec_name}}-${{env.Rec_ver}} for ${{env.device}} build at ${{steps.info.outputs.date}}
-            Download:[${{env.Rec_name}}_for_${{env.device}}_by_${{env.Author}}.zip](https://download.fastgit.org/)
+            Actions:[${{github.run_id}}](${{github.server_url}}/${{github.repository}}/actions/runs/${{github.run_id}})
+            Download:[${{env.Rec_name}}_for_${{env.device}}_by_${{env.Author}}.zip](https://download.fastgit.org/${{github.repository}}/releases/download/${{env.device}}-${{env.Rec_name}}-${{steps.info.outputs.date}}/${{env.Rec_name}}_for_${{env.device}}_by_${{env.Author}}.zip)
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Remove old Releases
+        uses: dev-drprasad/delete-older-releases@v0.1.0
+        if: (github.event.inputs.Delete_oldReleases == 'true' && github.event.inputs.Delete_oldReleases  != 'false') || contains(github.event.action, 'Delete_oldReleases')
+        with:
+          keep_latest: 12
+          delete_tags: true
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
