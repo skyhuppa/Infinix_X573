@@ -18,7 +18,7 @@ on: # [push]
 env:
   MANIFEST: git://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
   DEVICE: Infinix_X573
-  DT_LINK: https://github.com/skyhuppa/Infinix_X573 -b android-9
+  DT_LINK: https://github.com/skyhuppa/Infinix_X573 -b twrp-11.0
   DT_PATH: device/Infinix/Infinix_X573
   BOT_TOKEN: ${{ 2015855391:AAGUCA0e4LOhJC_51kRYQ80mEpIoCn6elik }}
   TARGET: recoveryimage
