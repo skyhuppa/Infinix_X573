@@ -1,11 +1,11 @@
-name: Building TWRP Android 11
+name: Building TWRP Android 9
 
 on: # [push]
 #  release:
 #    types: [published]
 #  push:
 #    branches:
-#      - master
+#      - android-9
 #    paths:
 #      - '.config'
 #  schedule:
@@ -16,10 +16,10 @@ on: # [push]
     types: [started]
 
 env:
-  MANIFEST: git://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
-  DEVICE: begonia
-  DT_LINK: https://github.com/ZyCromerZ/twrp_redmi_begonia -b android-11.0
-  DT_PATH: device/redmi/begonia
+  MANIFEST: git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-9.0
+  DEVICE: Infinix_X573
+  DT_LINK: https://github.com/skyhuppa/Infinix_X573 -b android-9
+  DT_PATH: device/Infinix/Infinix_X573
   BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
   TARGET: recoveryimage
   TZ: Asia/Jakarta
@@ -34,12 +34,12 @@ jobs:
          
        - name: Initializing environment
          run: |
-            curl -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" -d chat_id="-1001400256602" -d "disable_web_page_preview=true" -d "parse_mode=html" -d text="Initializing environment for compiling TWRP"
+            curl -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" -d chat_id="-922861774" -d "disable_web_page_preview=true" -d "parse_mode=html" -d text="Initializing environment for compiling TWRP"
             sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d
             docker rmi `docker images -q`
             sudo apt-get remove landscape-common
-            git config --global user.name "ZyCromerZ"
-            git config --global user.email "neetroid97@gmail.com"         
+            git config --global user.name "skyhuppa"
+            git config --global user.email "skyhuppa@hotmail.co.uk"         
             sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php* 
             sudo -E apt-get clean 
             sudo -E apt-get -qq update
@@ -47,9 +47,9 @@ jobs:
             sudo curl --create-dirs -L -o /usr/local/bin/repo -O -L https://storage.googleapis.com/git-repo-downloads/repo
             sudo chmod a+rx /usr/local/bin/repo
             
-       - name: Sync TWRP A11 source and device tree
+       - name: Sync TWRP 9 source and device tree
          run: |
-             curl -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" -d chat_id="-1001400256602" -d "disable_web_page_preview=true" -d "parse_mode=html" -d text="Sync TWRP A11 source and device tree"
+             curl -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" -d chat_id="-922861774" -d "disable_web_page_preview=true" -d "parse_mode=html" -d text="Sync TWRP 9 source and device tree"
              mkdir work
              cd work
              repo init -u $MANIFEST --depth=1 --partial-clone --clone-filter=blob:limit=10M --groups=all,-notdefault,-device,-darwin,-x86,-mips
@@ -58,7 +58,7 @@ jobs:
              
        - name: Building TWRP
          run: |
-              curl -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" -d chat_id="-1001400256602" -d "disable_web_page_preview=true" -d "parse_mode=html" -d text="Building TWRP"
+              curl -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" -d chat_id="-922861774" -d "disable_web_page_preview=true" -d "parse_mode=html" -d text="Building TWRP"
               cd work
               . build/envsetup.sh && lunch twrp_$DEVICE-eng 
               repo sync -j4
@@ -66,13 +66,13 @@ jobs:
              
        - name: Uploading recovery image
          run: |
-              curl -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" -d chat_id="-1001400256602" -d "disable_web_page_preview=true" -d "parse_mode=html" -d text="Uploading recovery image"
+              curl -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" -d chat_id="-922861774" -d "disable_web_page_preview=true" -d "parse_mode=html" -d text="Uploading recovery image"
               cd work/out/target/product/$DEVICE
-              ZipName="[$(date +"%Y%m%d")]TWRP-begonia-3.6.0_11.zip"
+              ZipName="[$(date +"%Y%m%d")]TWRP-Infinix_X573-3.5.0_11.zip"
               sudo zip -r9 "$ZipName" recovery.img
               ls > ls.txt
-              curl -F chat_id="-1001400256602" -F document=@ls.txt -F parse_mode=markdown https://api.telegram.org/bot$BOT_TOKEN/sendDocument -F caption="Check it out @clurfe"
-              curl -F chat_id="-1001434683571" -F document=@$ZipName https://api.telegram.org/bot$BOT_TOKEN/sendDocument -F caption="Please test it @clurfe"
+              curl -F chat_id="-922861774" -F document=@ls.txt -F parse_mode=markdown https://api.telegram.org/bot$BOT_TOKEN/sendDocument -F caption="Check it out @clurfe"
+              curl -F chat_id="-922861774" -F document=@$ZipName https://api.telegram.org/bot$BOT_TOKEN/sendDocument -F caption="Please test it @clurfe"
                curl -sL https://git.io/file-transfer | sh
                ./transfer wet $ZipName
                ./transfer wet recovery.img
