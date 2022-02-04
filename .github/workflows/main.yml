@@ -16,11 +16,11 @@ on: # [push]
     types: [started]
 
 env:
-  MANIFEST: git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-9.0
+  MANIFEST: git://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
   DEVICE: Infinix_X573
-  DT_LINK: https://github.com/skyhuppa/Infinix_X573 -b android-9
+  DT_LINK: https://github.com/skyhuppa/Infinix_X573 -b twrp-11.0
   DT_PATH: device/Infinix/Infinix_X573
-  BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+  BOT_TOKEN: ${{ 2015855391:AAGUCA0e4LOhJC_51kRYQ80mEpIoCn6elik }}
   TARGET: recoveryimage
   TZ: Asia/Jakarta
 
@@ -38,8 +38,8 @@ jobs:
             sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d
             docker rmi `docker images -q`
             sudo apt-get remove landscape-common
-            git config --global user.name "skyhuppa"
-            git config --global user.email "skyhuppa@hotmail.co.uk"         
+            git config --global user.name "ZyCromerZ"
+            git config --global user.email "neetroid97@gmail.com"
             sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php* 
             sudo -E apt-get clean 
             sudo -E apt-get -qq update
@@ -52,7 +52,7 @@ jobs:
              curl -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" -d chat_id="-922861774" -d "disable_web_page_preview=true" -d "parse_mode=html" -d text="Sync TWRP 9 source and device tree"
              mkdir work
              cd work
-             repo init -u $MANIFEST --depth=1 --partial-clone --clone-filter=blob:limit=10M --groups=all,-notdefault,-device,-darwin,-x86,-mips
+             repo init --depth=1 -u $MANIFEST -g default,-device,-mips,-darwin,-notdefault
              repo sync -j4
              git clone $DT_LINK --single-branch $DT_PATH
              
@@ -62,13 +62,14 @@ jobs:
               cd work
               . build/envsetup.sh && lunch twrp_$DEVICE-eng 
               repo sync -j4
-              export ALLOW_MISSING_DEPENDENCIES=true && mka $TARGET -j4
+              export ALLOW_MISSING_DEPENDENCIES=true
+              export LC_ALL="C" && mka $TARGET -j4
              
        - name: Uploading recovery image
          run: |
               curl -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" -d chat_id="-922861774" -d "disable_web_page_preview=true" -d "parse_mode=html" -d text="Uploading recovery image"
               cd work/out/target/product/$DEVICE
-              ZipName="[$(date +"%Y%m%d")]TWRP-Infinix_X573-3.5.0_11.zip"
+              ZipName="[$(date +"%Y%m%d")]TWRP-Infinix_X573-3.5.0_9.zip"
               sudo zip -r9 "$ZipName" recovery.img
               ls > ls.txt
               curl -F chat_id="-922861774" -F document=@ls.txt -F parse_mode=markdown https://api.telegram.org/bot$BOT_TOKEN/sendDocument -F caption="Check it out @clurfe"
