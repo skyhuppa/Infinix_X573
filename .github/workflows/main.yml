@@ -20,7 +20,7 @@ env:
   DEVICE: Infinix_X573
   DT_LINK: https://github.com/skyhuppa/Infinix_X573 -b android-9
   DT_PATH: device/Infinix/Infinix_X573
-  BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+  BOT_TOKEN: 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
   TARGET: recoveryimage
   TZ: Asia/Jakarta
 
