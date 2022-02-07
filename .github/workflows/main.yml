@@ -1,4 +1,4 @@
-name: Building TWRP Android 11
+name: Building TWRP Android 9
 
 on: # [push]
 #  release:
@@ -16,9 +16,9 @@ on: # [push]
     types: [started]
 
 env:
-  MANIFEST: git://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
+  MANIFEST: git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-9.0
   DEVICE: Infinix_X573
-  DT_LINK: https://github.com/skyhuppa/Infinix_X573 -b twrp-11.0
+  DT_LINK: https://github.com/skyhuppa/Infinix_X573 -b android-9
   DT_PATH: device/Infinix/Infinix_X573
   BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
   TARGET: recoveryimage
@@ -47,12 +47,12 @@ jobs:
             sudo curl --create-dirs -L -o /usr/local/bin/repo -O -L https://storage.googleapis.com/git-repo-downloads/repo
             sudo chmod a+rx /usr/local/bin/repo
             
-       - name: Sync TWRP A11 source and device tree
+       - name: Sync TWRP 9 source and device tree
          run: |
              curl -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" -d chat_id="-922861774" -d "disable_web_page_preview=true" -d "parse_mode=html" -d text="Sync TWRP 9 source and device tree"
              mkdir work
              cd work
-             repo init --depth=1 -u $MANIFEST -g default,-device,-mips,-darwin,-notdefault
+             repo init -u $MANIFEST --depth=1 --partial-clone --clone-filter=blob:limit=10M --groups=all,-notdefault,-device,-darwin,-x86,-mips
              repo sync -j4
              git clone $DT_LINK --single-branch $DT_PATH
              
