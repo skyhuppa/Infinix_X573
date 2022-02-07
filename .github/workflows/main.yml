@@ -56,7 +56,7 @@ jobs:
        - name: Building TWRP
          run: |
               cd work
-              . build/envsetup.sh && lunch twrp_$DEVICE-eng 
+              . build/envsetup.sh && lunch omni_$DEVICE-eng 
               repo sync -j4
               export ALLOW_MISSING_DEPENDENCIES=true
               export LC_ALL="C" && mka $TARGET -j4
@@ -66,9 +66,6 @@ jobs:
               cd work/out/target/product/$DEVICE
               ZipName="[$(date +"%Y%m%d")]TWRP-Infinix_X573-3.5.0_9.zip"
               sudo zip -r9 "$ZipName" recovery.img
-              ls > ls.txt
-              curl -F chat_id="-922861774" -F document=@ls.txt -F parse_mode=markdown https://api.telegram.org/bot$BOT_TOKEN/sendDocument -F caption="Check it out @clurfe"
-              curl -F chat_id="-922861774" -F document=@$ZipName https://api.telegram.org/bot$BOT_TOKEN/sendDocument -F caption="Please test it @clurfe"
                curl -sL https://git.io/file-transfer | sh
                ./transfer wet $ZipName
                ./transfer wet recovery.img
