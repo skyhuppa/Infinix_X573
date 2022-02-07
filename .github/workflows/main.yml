@@ -62,8 +62,8 @@ jobs:
               . build/envsetup.sh && lunch omni_$DEVICE-eng 
               repo sync -j4
               export ALLOW_MISSING_DEPENDENCIES=true && mka $TARGET -j4
+              export LC_ALL="C" && mka $TARGET -j4
               
-
        - name: Uploading recovery image
          run: |
               cd work/out/target/product/$DEVICE
