@@ -16,7 +16,7 @@ on: # [push]
     types: [started]
 
 env:
-  MANIFEST: git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-9.0
+  MANIFEST: git https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-9.0
   DEVICE: Infinix_X573
   DT_LINK: https://github.com/skyhuppa/Infinix_X573 -b android-9
   DT_PATH: device/Infinix/Infinix_X573
