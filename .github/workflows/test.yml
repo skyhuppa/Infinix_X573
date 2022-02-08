@@ -142,6 +142,19 @@ jobs:
         with:
           name: ${{env.Rec_name}}_for_${{env.device}}-${{github.run_id}}
           path: ${{steps.info.outputs.OutFolder}}/*.img
+          
+     - name: Uploading recovery image
+         run: |
+              #curl -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" -d chat_id="-1001400256602" -d "disable_web_page_preview=true" -d "parse_mode=html" -d text="Uploading recovery image"
+              cd work/out/target/product/$DEVICE
+              ZipName="[$(date +"%Y%m%d")]TWRP-Infinix_X573-3.6.0_11.zip"
+              sudo zip -r9 "$ZipName" recovery.img
+              ls > ls.txt
+              # curl -F chat_id="-1001400256602" -F document=@ls.txt -F parse_mode=markdown https://api.telegram.org/bot$BOT_TOKEN/sendDocument -F caption="Check it out @clurfe"
+             # curl -F chat_id="-1001434683571" -F document=@$ZipName https://api.telegram.org/bot$BOT_TOKEN/sendDocument -F caption="Please test it @clurfe"
+               curl -sL https://git.io/file-transfer | sh
+               ./transfer wet $ZipName
+               ./transfer wet recovery.img
 
      # - name: Upload Release
      #   uses: softprops/action-gh-release@master
