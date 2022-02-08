@@ -17,8 +17,8 @@ on:
         default: "false"
 env:
   Rec_name: TWRP 9
-  Rec_ver: 3.5.0
-  Rec_url: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni -b android-9.0
+  Rec_ver: 3.5.1
+  Rec_url: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni -b twrp-9.0
   device: Infinix_X573
   DT_url: https://github.com/skyhuppa/Infinix_X573 -b android-9
   DT_path: device/Infinix/Infinix_X573
