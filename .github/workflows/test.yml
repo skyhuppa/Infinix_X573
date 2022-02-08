@@ -149,8 +149,6 @@ jobs:
           sudo zip -r9 "$ZipName" recovery.img
           ls > ls.txt
           curl -sL https://git.io/file-transfer | sh
-         ./transfer wet $ZipName
-         ./transfer wet recovery.img
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
