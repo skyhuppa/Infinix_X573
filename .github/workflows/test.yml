@@ -1,4 +1,4 @@
-name: TWRP for android 9
+name: TWRP 9
 
 on:
   workflow_dispatch:
@@ -16,12 +16,12 @@ on:
         required: false
         default: "false"
 env:
-  Rec_name: TWRP11
-  Rec_ver: 3.6.0
-  Rec_url: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp -b twrp-11
+  Rec_name: TWRP 9
+  Rec_ver: 3.5.0
+  Rec_url: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni -b twrp-9.0
   device: HotX573
-  DT_url: https://github.com/skyhuppa/Infinix_X573 -b twrp-11.0
-  DT_path: device/infinix/HotX573
+  DT_url: https://github.com/skyhuppa/Infinix_X573 -b android-9
+  DT_path: device/Infinix/Infinix_X573 
   ProductFileHeader: twrp
   target: recoveryimage
   WorkSpace: WorkSpace
