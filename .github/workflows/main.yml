@@ -33,26 +33,23 @@ jobs:
          
        - name: Initializing environment
          run: |
-            # sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d
+            sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d
             docker rmi `docker images -q`
-            apt install openssh-server openjdk-8-jdk -y
-            apt update --fix-missing
-            apt install openssh-server openjdk-8-jdk -y
-            # sudo apt-get remove landscape-common
+            sudo apt-get remove landscape-common
             # git config --global user.name "ZyCromerZ"
             # git config --global user.email "neetroid97@gmail.com"
-            # sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php* 
-            # sudo -E apt-get clean 
-            # sudo -E apt-get -qq update
-            # sudo -E apt-get -qq install bc build-essential zip curl libstdc++6 git wget python gcc clang libssl-dev repo rsync flex curl  bison aria2
-            # sudo curl --create-dirs -L -o /usr/local/bin/repo -O -L https://storage.googleapis.com/git-repo-downloads/repo
-            # sudo chmod a+rx /usr/local/bin/repo
+            sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php* 
+            sudo -E apt-get clean 
+            sudo -E apt-get -qq update
+            sudo -E apt-get -qq install bc build-essential zip curl libstdc++6 git wget python gcc clang libssl-dev repo rsync flex curl  bison aria2
+            sudo curl --create-dirs -L -o /usr/local/bin/repo -O -L https://storage.googleapis.com/git-repo-downloads/repo
+            sudo chmod a+rx /usr/local/bin/repo
             
        - name: Sync TWRP 9 source and device tree
          run: |
              mkdir work
              cd work
-             repo init --depth=1 -u $MANIFEST -g default,-device,-mips,-darwin,-notdefault
+             repo init -u $MANIFEST --depth=1 --partial-clone --clone-filter=blob:limit=10M --groups=all,-notdefault,-device,-darwin,-x86,-mips
              repo sync -j4
              git clone $DT_LINK --single-branch $DT_PATH
              
