@@ -1,4 +1,4 @@
-name: TWRP11 Builder
+name: TWRP for android 9
 
 on:
   workflow_dispatch:
