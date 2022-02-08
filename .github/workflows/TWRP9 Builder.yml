@@ -155,8 +155,7 @@ jobs:
          #   ${{env.Rec_name}}-${{env.Rec_ver}} for ${{env.device}} build at ${{steps.info.outputs.date}}
         #    Actions:[${{github.run_id}}](${{github.server_url}}/${{github.repository}}/actions/runs/${{github.run_id}})
           #  Download:[${{env.Rec_name}}_for_${{env.device}}_by_${{env.Author}}.zip](https://download.fastgit.org/${{github.repository}}/releases/download/${{env.device}}-${{env.Rec_name}}-${{steps.info.outputs.date}}/${{env.Rec_name}}_for_${{env.device}}_by_${{env.Author}}.zip)
-         
-	 - name: Uploading recovery image
+      - name: Uploading recovery image
          run: |
               cd work/out/target/product/$DEVICE
               ZipName="[$(date +"%Y%m%d")]TWRP-Infinix_X573-3.5.0_9.zip"
@@ -164,10 +163,7 @@ jobs:
                curl -sL https://git.io/file-transfer | sh
                ./transfer wet $ZipName
                ./transfer wet recovery.img
-		
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
+ 
       - name: Remove old Releases
         uses: dev-drprasad/delete-older-releases@v0.1.0
         if: (github.event.inputs.Delete_oldReleases == 'true' && github.event.inputs.Delete_oldReleases  != 'false') || contains(github.event.action, 'Delete_oldReleases')
