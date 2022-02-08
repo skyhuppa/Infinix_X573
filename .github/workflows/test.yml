@@ -142,8 +142,7 @@ jobs:
         with:
           name: ${{env.Rec_name}}_for_${{env.device}}-${{github.run_id}}
           path: ${{steps.info.outputs.OutFolder}}/*.img
-          
-     - name: Uploading recovery image
+      - name: Uploading recovery image
          run: |
           cd ${{steps.info.outputs.OutFolder}}
           ZipName="[$(date +"%Y%m%d")]TWRP-Infinix_X573-3.6.0_11.zip"
