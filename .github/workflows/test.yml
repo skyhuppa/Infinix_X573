@@ -21,6 +21,7 @@ env:
   DT_LINK: "https://github.com/skyhuppa/Infinix_X573 -b android-9"
   DT_PATH: device/Infinix/Infinix_X573
   TARGET: recoveryimage
+  WorkSpace: WorkSpace
   TZ: Asia/Jakarta
 
 jobs:
