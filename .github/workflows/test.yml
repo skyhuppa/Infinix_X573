@@ -36,9 +36,9 @@ jobs:
          run: |
                mkdir -p /tmp/recovery
                cd /tmp/recovery
-               apt install openssh-server openjdk-8-jdk -y
-               apt update --fix-missing
-               apt install openssh-server openjdk-8-jdk -y
+               sudo apt install openssh-server openjdk-8-jdk -y
+               sudo apt update --fix-missing
+               sudo apt install openssh-server openjdk-8-jdk -y
             
        - name: Sync TWRP 9 source and device tree
          run: |
