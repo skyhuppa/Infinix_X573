@@ -66,7 +66,7 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 # TARGET_KERNEL_CONFIG := Infinix_X573_defconfig
 
 # Ramdisk compression
-LZMA_RAMDISK_TARGETS := recovery
+# LZMA_RAMDISK_TARGETS := recovery
 
 # TWRP Configuration
 TW_SCREEN_BLANK_ON_BOOT := true
