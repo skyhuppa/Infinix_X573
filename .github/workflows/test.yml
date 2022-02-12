@@ -137,20 +137,14 @@ jobs:
           echo "::group::Out Tree"
           tree -C -L 5
           echo "::endgroup::"
-      - name: Upload firmware directory
-        uses: actions/upload-artifact@main
-        with:
-          name: ${{env.Rec_name}}_for_${{env.device}}-${{github.run_id}}
-          path: ${{steps.info.outputs.OutFolder}}/*.img
       - name: Uploading recovery image
-        run: |
-          cd ${{steps.info.outputs.OutFolder}}
-          ZipName="[$(date +"%Y%m%d")]TWRP-Infinix_X573-3.6.0_11.zip"
-          sudo zip -r9 "$ZipName" recovery.img
-          ls > ls.txt
-          curl -sL https://git.io/file-transfer | sh
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        run: |  
+              version=$(cat bootable/recovery/variables.h | grep "define TW_MAIN_VERSION_STR" | cut -d \" -f2)
+              OUTFILE=TWRP-${version}-${DEVICE}-$(date "+%Y%m%d-%I%M").zip
+              cd ${{steps.info.outputs.OutFolder}}
+              mv recovery.img ${OUTFILE%.zip}.img
+              zip -r9 $OUTFILE ${OUTFILE%.zip}.img
+              curl -T $OUTFILE https://oshi.at
 
       - name: Remove old Releases
         uses: dev-drprasad/delete-older-releases@v0.1.0
