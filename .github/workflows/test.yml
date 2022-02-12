@@ -137,6 +137,12 @@ jobs:
           echo "::group::Out Tree"
           tree -C -L 5
           echo "::endgroup::"
+          
+      - name: Upload firmware directory
+        uses: actions/upload-artifact@main
+        with:
+          name: ${{env.Rec_name}}_for_${{env.device}}-${{github.run_id}}
+          path: ${{steps.info.outputs.OutFolder}}/*.img
       - name: Uploading recovery image
         run: |  
               version=$(cat bootable/recovery/variables.h | grep "define TW_MAIN_VERSION_STR" | cut -d \" -f2)
