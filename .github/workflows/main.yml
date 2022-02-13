@@ -17,9 +17,9 @@ on: # [push]
 
 env:
   MANIFEST: "git://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11"
-  DEVICE: Infinix_X573
+  DEVICE: HotX573
   DT_LINK: "https://github.com/skyhuppa/Infinix_X573 -b twrp-11.0"
-  DT_PATH: device/Infinix/Infinix_X573
+  DT_PATH: device/infinix/HotX573
   TARGET: recoveryimage
   TZ: Asia/Jakarta
 
@@ -56,7 +56,7 @@ jobs:
        - name: Building TWRP
          run: |
               cd work
-              . build/envsetup.sh && lunch omni_$DEVICE-eng 
+              . build/envsetup.sh && lunch aosp_$DEVICE-eng 
               repo sync -j4
               export ALLOW_MISSING_DEPENDENCIES=true 
               export LC_ALL="C" && mka $TARGET -j4
@@ -64,7 +64,7 @@ jobs:
        - name: Uploading recovery image
          run: |
               cd work/out/target/product/$DEVICE
-              ZipName="[$(date +"%Y%m%d")]TWRP-Infinix_X573-3.5.1.zip"
+              ZipName="[$(date +"%Y%m%d")]TWRP-HotX573-3.6.1.zip"
               sudo zip -r9 "$ZipName" recovery.img
                curl -sL https://git.io/file-transfer | sh
                ./transfer wet $ZipName
