@@ -16,7 +16,7 @@ on:
         required: false
         default: "false"
 env:
-  Rec_name: TWRP11
+  Rec_name: TWRP9
   Rec_ver: 3.6.0
   Rec_url: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni -b twrp-9.0
   device: Infinix_X573
