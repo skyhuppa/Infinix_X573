@@ -1,4 +1,4 @@
-name: Building TWRP Android 11
+name: TWRP Android 11
 
 on: # [push]
 #  release:
