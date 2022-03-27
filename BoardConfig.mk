@@ -60,7 +60,7 @@ TARGET_COPY_OUT_VENDOR := vendor
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/etc/recovery.fstab
 BOARD_HAS_NO_SELECT_BUTTON := true
-
+BOARD_ROOT_EXTRA_FOLDERS += etc 
 
 # Etra folders
 BOARD_ROOT_EXTRA_FOLDERS := bt_firmware dsp firmware persist
