@@ -1,40 +1,43 @@
-name: TWRP Android 11 Builder
+name: Building TWRP Android 11
 
-on: # [push]
-#  release:
-#    types: [published]
-#  push:
-#    branches:
-#      - main
-#    paths:
-#      - '.config'
-#  schedule:
-#    - cron: 0 8 * * 5
-# Allows you to run this workflow manually from the Actions tab
+on:
   workflow_dispatch:
-  watch:
-    types: [started]
-
+    inputs:
+      crypto:
+        description: "Whether to disable the encryption modules, true or false"
+        required: false
+        default: "false"
+      Enable_cache:
+        description: "Whether to enable cache，true or false"
+        required: true
+        default: "true"
+      Delete_oldReleases:
+        description: "whether to delete old releases，true or false"
+        required: false
+        default: "false"
 env:
-  MANIFEST: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp -b twrp-11
-  DEVICE: HotX573
-  DT_LINK: https://github.com/skyhuppa/Infinix_X573 -b twrp-11.0
-  DT_PATH: device/infinix/HotX573
-  BOT_TOKEN: ${{ secrets.BOT_TOKEN }} 
-  TARGET: recoveryimage
-  TZ: Africa/Accra
+  Rec_name: TWRP11
+  Rec_ver: 3.6.0
+  Rec_url: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp -b twrp-11
+  device: HotX573
+  DT_url: https://github.com/skyhuppa/Infinix_X573 -b twrp-11.0
+  DT_path: device/infinix/HotX573
+  ProductFileHeader: twrp
+  target: recoveryimage
+  WorkSpace: WorkSpace
+  TZ: Asia/Shanghai
+  Author: ${{github.actor}}
+  Delete_old: false
 
 jobs:
   build:
     runs-on: ubuntu-18.04
 
     steps:
-       - name: Checkout
-         uses: actions/checkout@v3
-         with: 
-           path: main
-         
-       - name: Initializing environment
+      - name: "Cleanup Environment"
+        uses: rokibhasansagar/slimhub_actions@main
+
+      - name: Initializing environment
         run: |
           echo "::group::Install Build Env Tool"
           sudo -E apt-get clean
@@ -65,8 +68,24 @@ jobs:
         run: |
           cd ${{env.WorkSpace}}
           git clone ${{env.DT_url}} --depth=1 --single-branch ${{env.DT_path}}
-             
-       - name: Build ${{env.Rec_name}}
+      - name: Restore cache
+        uses: actions/cache@v2
+        if: (github.event.inputs.Enable_cache == 'true' && github.event.inputs.Enable_cache  != 'false') || contains(github.event.action, 'Enable_cache')
+        with:
+          path: |
+            ~/.ccache
+            ${{env.WorkSpace}}/out
+          key: ${{runner.os}}-${{env.Rec_name}}-${{env.Rec_ver}}-${{env.device}}
+          restore-keys: |
+            ${{runner.os}}-${{env.Rec_name}}-${{env.Rec_ver}}-${{env.device}}
+      - name: Setup ccache
+        uses: alexjurkiewicz/setup-ccache@master
+        if: (github.event.inputs.Enable_cache == 'true' && github.event.inputs.Enable_cache  != 'false') || contains(github.event.action, 'Enable_cache')
+        with:
+          max-size: 10G
+          extra-config: |
+            keep_comments_cpp = true
+      - name: Build ${{env.Rec_name}}
         run: |
           cd ${{env.WorkSpace}}
           echo "::group::Run Envsetup.sh"
@@ -92,16 +111,54 @@ jobs:
           echo "::set-output name=date::$(/bin/date -u "+%Y-%m-%d-%H-%M")"
           echo "::set-output name=OutFolder::"${{env.WorkSpace}}/out/target/product/${{env.device}}""
         shell: bash
-             
-       - name: Uploading recovery image
-         run: |
-              curl -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" -d chat_id="-922861774" -d "disable_web_page_preview=true" -d "parse_mode=html" -d text="Uploading recovery image"
-              cd work/out/target/product/$DEVICE
-              ZipName="[$(date +"%Y%m%d")]TWRP-HotX573-3.6.0_11.zip"
-              sudo zip -r9 "$ZipName" recovery.img
-              ls > ls.txt
-              curl -F chat_id="-922861774" -F document=@ls.txt -F parse_mode=markdown https://api.telegram.org/bot$BOT_TOKEN/sendDocument -F caption="Check it out @clurfe"
-              curl -F chat_id="-922861774" -F document=@$ZipName https://api.telegram.org/bot$BOT_TOKEN/sendDocument -F caption="Please test it @clurfe"
-               curl -sL https://git.io/file-transfer | sh
-               ./transfer wet $skyhuppa
-               ./transfer wet recovery.img
+
+      - name: Show Space Info
+        run: |
+          cd ${{steps.info.outputs.OutFolder}}
+          sudo zip -r9 ${{env.Rec_name}}_for_${{env.device}}_by_${{env.Author}}.zip recovery.img
+          echo "::group::Out Directory Space"
+          du -sh
+          echo "::endgroup::"
+          echo "::group::Ccache Directory Space"
+          du -sh ~/.ccache
+          echo "::endgroup::"
+          echo "::group::Disk Space"
+          df -hlT /
+          echo "::endgroup::"
+          echo "::group::Out Tree"
+          tree -C -L 5
+          echo "::endgroup::"
+      - name: Upload firmware directory
+        uses: actions/upload-artifact@main
+        with:
+          name: ${{env.Rec_name}}_for_${{env.device}}-${{github.run_id}}
+          path: ${{steps.info.outputs.OutFolder}}/*.img
+
+      - name: Upload Release
+        uses: softprops/action-gh-release@master
+        with:
+          files: |
+            ${{steps.info.outputs.OutFolder}}/${{env.Rec_name}}_for_${{env.device}}_by_${{env.Author}}.zip
+            ${{steps.info.outputs.OutFolder}}/*.img
+          name: ${{env.Rec_name}}-${{env.device}}-${{github.run_id}}
+          tag_name: ${{env.device}}-${{env.Rec_name}}-${{steps.info.outputs.date}}
+          body: |
+            ${{env.Rec_name}}-${{env.Rec_ver}} for ${{env.device}} build at ${{steps.info.outputs.date}}
+            Actions:[${{github.run_id}}](${{github.server_url}}/${{github.repository}}/actions/runs/${{github.run_id}})
+            Download:[${{env.Rec_name}}_for_${{env.device}}_by_${{env.Author}}.zip](https://download.fastgit.org/${{github.repository}}/releases/download/${{env.device}}-${{env.Rec_name}}-${{steps.info.outputs.date}}/${{env.Rec_name}}_for_${{env.device}}_by_${{env.Author}}.zip)
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Remove old Releases
+        uses: dev-drprasad/delete-older-releases@v0.1.0
+        if: (github.event.inputs.Delete_oldReleases == 'true' && github.event.inputs.Delete_oldReleases  != 'false') || contains(github.event.action, 'Delete_oldReleases')
+        with:
+          keep_latest: 12
+          delete_tags: true
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Delete workflow runs
+        uses: GitRML/delete-workflow-runs@main
+        with:
+          keep_minimum_runs: 10
