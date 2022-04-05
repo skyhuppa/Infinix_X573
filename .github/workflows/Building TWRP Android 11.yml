@@ -3,10 +3,6 @@ name: Building TWRP Android 11
 on:
   workflow_dispatch:
     inputs:
-      crypto:
-        description: "Whether to disable the encryption modules, true or false"
-        required: false
-        default: "false"
       Enable_cache:
         description: "Whether to enable cache，true or false"
         required: true
