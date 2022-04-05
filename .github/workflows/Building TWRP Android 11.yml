@@ -1,11 +1,11 @@
-name: Building TWRP Android 11
+name: TWRP Android 11 Builder
 
 on: # [push]
 #  release:
 #    types: [published]
 #  push:
 #    branches:
-#      - master
+#      - main
 #    paths:
 #      - '.config'
 #  schedule:
@@ -20,17 +20,19 @@ env:
   DEVICE: HotX573
   DT_LINK: https://github.com/skyhuppa/Infinix_X573 -b twrp-11.0
   DT_PATH: device/infinix/HotX573
-  BOT_TOKEN: 2015855391:AAGUCA0e4LOhJC_51kRYQ80mEpIoCn6elik 
+  BOT_TOKEN: ${{ secrets.BOT_TOKEN }} 
   TARGET: recoveryimage
   TZ: Africa/Accra
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     steps:
        - name: Checkout
-         uses: actions/checkout@master
+         uses: actions/checkout@v3
+         with: 
+           path: main
          
        - name: Initializing environment
          run: |
