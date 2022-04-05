@@ -20,7 +20,7 @@ env:
   DEVICE: HotX573
   DT_LINK: https://github.com/skyhuppa/Infinix_X573 -b twrp-11.0
   DT_PATH: device/infinix/HotX573
-  BOT_TOKEN: ${{ secrets.BOT_TOKEN }} 
+  BOT_TOKEN: ${{ secrets.2015855391:AAGUCA0e4LOhJC_51kRYQ80mEpIoCn6elik }} 
   TARGET: recoveryimage
   TZ: Africa/Accra
 
