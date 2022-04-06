@@ -27,7 +27,7 @@ env:
   WorkSpace: WorkSpace
   TZ: Asia/Shanghai
   Author: ${{github.actor}}
-  Delete_old: false
+  Delete_old: true
 
 jobs:
   build:
