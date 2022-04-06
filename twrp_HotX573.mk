@@ -28,6 +28,9 @@ PRODUCT_MANUFACTURER := INFINIX MOBILITY LIMITED
 
 PRODUCT_SHIPPING_API_LEVEL := 28 
 
+# Ramdisk compression
+LZMA_RAMDISK_TARGETS := recovery
+
 # fastbootd
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
