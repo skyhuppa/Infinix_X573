@@ -58,7 +58,7 @@ jobs:
           repo init -u ${{env.Rec_url}} --depth=1 --groups=all,-notdefault,-device,-darwin,-x86,-mips
           echo "::endgroup::"
           echo "::group::Repo Sync"
-          repo sync -j4
+          repo sync -j3
           echo "::endgroup::"
       - name: Sync device tree
         run: |
