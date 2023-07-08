@@ -25,7 +25,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
 # Device Path
-LOCAL_PATH := device/infinix/infinx573
+LOCAL_PATH := device/infinix/HotX573
 
 # Dynamic Partition
 # PRODUCT_USE_DYNAMIC_PARTITIONS := true
