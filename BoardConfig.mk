@@ -19,7 +19,10 @@
 DEVICE_PATH := device/infinix/HotX573
 
 # For building with minimal manifest
+# build: Disable prebuilt ELF check by setting
 ALLOW_MISSING_DEPENDENCIES := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+BUILD_BROKEN_PREBUILT_ELF_FILES := true
 BUILD_BROKEN_DUP_RULES := true
 
 # Architecture
