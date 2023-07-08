@@ -18,14 +18,14 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 # Enable virtual A/B OTA
-ENABLE_VIRTUAL_AB := true
+# ENABLE_VIRTUAL_AB := true
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
 # Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
 # Device Path
-LOCAL_PATH := device/infinix/HotX573
+LOCAL_PATH := device/infinix/Infinix-X573
 
 # Dynamic Partition
 # PRODUCT_USE_DYNAMIC_PARTITIONS := true
