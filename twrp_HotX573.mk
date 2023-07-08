@@ -6,12 +6,15 @@
 #
 
 # Inherit from those products. Most specific first.
-# $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 # $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
 # Inherit some common Omni stuff.
  $(call inherit-product, vendor/twrp/config/common.mk)
+
+# Inherit from mojito device
+$(call inherit-product, device/xiaomi/mojito/device.mk)
 
 # PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(LOCAL_PATH)/recovery/root,recovery/root) \
 #	$(LOCAL_PATH)/prebuilt/dtb:dtb.img
@@ -22,21 +25,3 @@ PRODUCT_NAME := twrp_HotX573
 PRODUCT_BRAND := infinix
 PRODUCT_MODEL := Hot S 3
 PRODUCT_MANUFACTURER := INFINIX MOBILITY LIMITED
-
-# Dynamic Partition
-# PRODUCT_USE_DYNAMIC_PARTITIONS := true
-
-PRODUCT_SHIPPING_API_LEVEL := 28 
-
-# Ramdisk compression
-LZMA_RAMDISK_TARGETS := recovery
-
-# fastbootd
-PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.0-impl-mock \
-    fastbootd
-
-# HACK: Set vendor patch level
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.date.utc=1230768000
-    
