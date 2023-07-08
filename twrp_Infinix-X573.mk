@@ -14,14 +14,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
  $(call inherit-product, vendor/twrp/config/common.mk)
 
 # Inherit from mojito device
-$(call inherit-product, device/infinix/HotX573/device.mk)
+$(call inherit-product, device/infinix/Infinix-X573/device.mk)
 
 # PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(LOCAL_PATH)/recovery/root,recovery/root) \
 #	$(LOCAL_PATH)/prebuilt/dtb:dtb.img
  
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := HotX573
-PRODUCT_NAME := twrp_HotX573
-PRODUCT_BRAND := infinix
-PRODUCT_MODEL := Hot S 3
+PRODUCT_DEVICE := Infinix-X573
+PRODUCT_NAME := twrp_Infinix-X573
+PRODUCT_BRAND := Infinix X573
+PRODUCT_MODEL := Infinix Hot S3
 PRODUCT_MANUFACTURER := INFINIX MOBILITY LIMITED
