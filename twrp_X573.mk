@@ -22,6 +22,6 @@ $(call inherit-product, device/infinix/X573/device.mk)
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := X573
 PRODUCT_NAME := twrp_X573
-PRODUCT_BRAND := Infinix X573
-PRODUCT_MODEL := Infinix Hot S3
+PRODUCT_BRAND := Infinix-X573
+PRODUCT_MODEL := Infinix
 PRODUCT_MANUFACTURER := INFINIX MOBILITY LIMITED
