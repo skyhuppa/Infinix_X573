@@ -25,7 +25,7 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
 # Device Path
-LOCAL_PATH := device/infinix/Infinix-X573
+LOCAL_PATH := device/infinix/X573
 
 # Dynamic Partition
 # PRODUCT_USE_DYNAMIC_PARTITIONS := true
