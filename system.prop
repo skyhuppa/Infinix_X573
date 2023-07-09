@@ -1,9 +1,8 @@
-ro.adb.secure=0 
+ro.adb.secure=0
 ro.board.platform=msm8937
 ro.crypto.metadata.enabled=true
 ro.crypto.support_metadata_encrypt=true
-ro.product.vendor.marketname=Infinix Hot S3
-ro.product.board=Infninix X573
+ro.product.vendor.marketname=Infinix
 fbe.metadata.wrappedkey=true
 ro.crypto.volume.filenames_mode=aes-256-cts
 vendor.usb.use_ffs_mtp=1
