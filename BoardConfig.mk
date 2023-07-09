@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/infinix/Infinix-X573
+DEVICE_PATH := device/infinix/X573
 
 # For building with minimal manifest
 # build: Disable prebuilt ELF check by setting
