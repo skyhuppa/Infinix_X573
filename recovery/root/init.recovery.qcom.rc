@@ -27,6 +27,9 @@
 
 import init.recovery.twrp.rc
 
+on init
+    write /sys/class/backlight/panel0-backlight/brightness 200
+
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
@@ -35,7 +38,7 @@ on fs
 on property:ro.orangefox.boot=1
     mkdir /tmp/flashlight
     write /tmp/flashlight/max_brightness "200"
-    symlink /sys/devices/platform/flashlights_msm8937/torch_brightness /tmp/flashlight/brightness
+    symlink /sys/devices/platform/flashlights_qcom/torch_brightness /tmp/flashlight/brightness
 
 # Enable DT2W
 on post-fs
