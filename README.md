@@ -1,4 +1,4 @@
-![ Infinix Hot S3 ](https://skyhuppa.files.wordpress.com/2023/07/preview.jpg?w=640)
+![ Infinix Hot S3 ](https://skyhuppa.files.wordpress.com/2023/07/picsart_07-10-10.36.33.jpg?w=1024)
 
 
 #CREDIT
