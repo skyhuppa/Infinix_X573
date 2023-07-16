@@ -40,3 +40,7 @@ PRODUCT_PACKAGES += \
 # HACK: Set vendor patch level
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.date.utc=1230768000
+
+# Verity 
+PRODUCT_SUPPORTS_BOOT_SIGNER := true
+PRODUCT_VERITY_SIGNING_KEY := build/target/product/security/verity
