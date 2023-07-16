@@ -69,6 +69,9 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export OF_USE_GREEN_LED=
         export OF_FL_PATH1="/tmp/flashlight" # See /init.recovery.qcom.rc for more information
 
+       # Compression format
+        export OF_USE_LZMA_COMPRESSION=1
+
 	# use magisk 21.4 for the magisk addon
 	#export FOX_USE_SPECIFIC_MAGISK_ZIP=~/Magisk/Magisk-21.4.zip
 
