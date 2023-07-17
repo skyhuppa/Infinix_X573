@@ -43,7 +43,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # otacert
 PRODUCT_EXTRA_RECOVERY_KEYS += \
-    $(DEVICE_PATH)/security/testkey.x509.pem
+    $(DEVICE_PATH)/security/testkey
 
 # Verity 
 PRODUCT_SUPPORTS_BOOT_SIGNER := true
