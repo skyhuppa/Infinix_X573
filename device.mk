@@ -47,6 +47,8 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
     $(DEVICE_PATH)/security/otacerts \
     $(DEVICE_PATH)/security/verity_key
 
+PRODUCT_PACKAGES += \
+    otapreopt_script
 
 # Verity 
 PRODUCT_SUPPORTS_BOOT_SIGNER := true
