@@ -43,7 +43,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # otacert
 PRODUCT_EXTRA_RECOVERY_KEYS += \
-    $(DEVICE_PATH)/security/X573_releasekey
+    $(DEVICE_PATH)/security/X573_releasekey \
+    $(DEVICE_PATH)/security/otacerts \
+    $(DEVICE_PATH)/security/verity_key
+
 
 # Verity 
 PRODUCT_SUPPORTS_BOOT_SIGNER := true
