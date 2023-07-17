@@ -43,4 +43,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Verity 
 PRODUCT_SUPPORTS_BOOT_SIGNER := true
-PRODUCT_VERITY_SIGNING_KEY := build/target/product/security/verity
+PRODUCT_SUPPORTS_VERITY := true
+PRODUCT_VERITY_SIGNING_KEY := build/target/product/security/
+PRODUCT_PACKAGES += \
+            verity_key
+
