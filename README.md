@@ -1,4 +1,4 @@
-![ Infinix Hot S3 ](https://skyhuppa.files.wordpress.com/2023/07/infinix-x573.jpg)
+![ Infinix Hot S3 ](https://skyhuppa.files.wordpress.com/2023/07/orangefox-recovery.jpg?w=1024)
 
 
 #CREDIT
