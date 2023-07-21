@@ -36,7 +36,7 @@ on fs
     install_keyring
 	
 on init
-    write /sys/class/leds/lcd-backlight/brightness 255
+    write /sys/class/leds/lcd-backlight/brightness "255"
 	
 on init
     export LD_CONFIG_FILE /etc/ld.config.txt
@@ -121,10 +121,10 @@ on property:vendor.sys.listeners.registered=true
 
 
 # Fix flashlight on orangefox
-on property:ro.orangefox.boot=1
-    mkdir /tmp/flashlight
-    write /tmp/flashlight/max_brightness "255"
-    symlink /sys/devices/platform/flashlights_qcom/torch_brightness /tmp/flashlight/brightness
+# on property:ro.orangefox.boot=1
+#    mkdir /tmp/flashlight
+#    write /tmp/flashlight/max_brightness "255"
+#    symlink /sys/devices/platform/flashlights_qcom/torch_brightness /tmp/flashlight/brightness
 
 # Enable DT2W
 on post-fs
