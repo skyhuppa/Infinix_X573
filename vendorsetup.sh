@@ -67,7 +67,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	#export OF_FORCE_MAGISKBOOT_BOOT_PATCH_MIUI=1; # if you disable this, then enable the next line
 	export OF_NO_MIUI_PATCH_WARNING=1
 	export OF_USE_GREEN_LED=
-        export OF_FL_PATH1="/tmp/flashlight" # See /init.recovery.qcom.rc for more information
+#       export OF_FL_PATH1="/tmp/flashlight" # See /init.recovery.qcom.rc for more information
 
        # Compression format
         export OF_USE_LZMA_COMPRESSION=1
