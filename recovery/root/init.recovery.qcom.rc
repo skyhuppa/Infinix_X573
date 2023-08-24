@@ -125,6 +125,12 @@ on property:vendor.sys.listeners.registered=true
 #    mkdir /tmp/flashlight
 #    write /tmp/flashlight/max_brightness "200"
 #    symlink /sys/devices/platform/flashlights_qcom/torch_brightness /tmp/flashlight/brightness
+#    symlink /sys/class/leds/torch-light0/brightness
+#    symlink /sys/class/leds/led:torch_0/brightness
+#    symlink /sys/class/leds/led:torch_1/brightness
+#    symlink /sys/class/leds/led:switch/brightness
+#    symlink /sys/class/leds/led:switch_0/brightness
+
 
 # Enable DT2W
 on post-fs
