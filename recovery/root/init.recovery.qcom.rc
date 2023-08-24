@@ -37,6 +37,13 @@ on fs
 	
 on init
     write /sys/class/leds/lcd-backlight/brightness "200"
+    write /sys/class/leds/torch-light0/brightness "200"
+    write /sys/class/leds/led:torch_0/brightness "200"
+    write /sys/class/leds/led:torch_1/brightness "200"
+    write /sys/class/leds/led:switch/brightness "200"
+    write /sys/class/leds/led:switch_0/brightness "200"
+
+
 	
 on init
     export LD_CONFIG_FILE /etc/ld.config.txt
