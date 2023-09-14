@@ -13,7 +13,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 # $(call inherit-product, $(SRC_TARGET_DIR)/product/core_minimal.mk)
 
 # Inherit some common Omni stuff.
- $(call inherit-product, vendor/pb/config/common.mk)
+ $(call inherit-product, vendor/twrp/config/common.mk)
 
 
 # PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,device/infinic/HotX573/recovery/root,recovery/root)
