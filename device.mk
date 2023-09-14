@@ -28,7 +28,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
 LOCAL_PATH := device/infinix/HotX573
 
-
 # API
 PRODUCT_SHIPPING_API_LEVEL := 28
 
