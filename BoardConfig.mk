@@ -20,6 +20,8 @@ DEVICE_PATH := device/infinix/HotX573
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # Architecture
@@ -153,6 +155,3 @@ PLATFORM_VERSION := 16.1.0
 
 # PBRP Build Flags
 PB_DISABLE_DEFAULT_TREBLE_COMP := true
-PB_TORCH_PATH := /sys/devices/virtual/torch/torch/torch_level
-PB_TORCH_MAX_BRIGHTNESS := 1
-# PB_DISABLE_DEFAULT_DM_VERITY := true
