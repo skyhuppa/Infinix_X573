@@ -21,7 +21,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
  
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := HotX573
-PRODUCT_NAME := omni_HotX573
+PRODUCT_NAME := twrp_HotX573
 PRODUCT_BRAND := X573
 PRODUCT_MODEL := Hot S 3
 PRODUCT_MANUFACTURER := INFINIX MOBILITY LIMITED
