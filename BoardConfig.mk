@@ -132,8 +132,7 @@ TARGET_USES_LOGD := true
 TW_USE_TOOLBOX := true
 TW_EXCLUDE_TWRPAPP := true
 TW_INCLUDE_NTFS_3G := true
-TW_Y_OFFSET := 80
-TW_H_OFFSET := -80
+TW_INCLUDE_FASTBOOTD := true
 
 # Disable Mouse Cursor
 TW_INPUT_BLACKLIST := "hbtp_vm"
