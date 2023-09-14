@@ -6,7 +6,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_HotX573.mk
+    $(LOCAL_DIR)/twrp_HotX573.mk
 
     COMMON_LUNCH_CHOICES := \
-       omni_HotX573-eng
+       twrp_HotX573-eng
