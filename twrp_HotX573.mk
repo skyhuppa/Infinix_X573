@@ -10,7 +10,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 
 # Inherit Target Product stuff
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_minimal.mk)
+# $(call inherit-product, $(SRC_TARGET_DIR)/product/core_minimal.mk)
 
 # Inherit some common Omni stuff.
  $(call inherit-product, vendor/pb/config/common.mk)
