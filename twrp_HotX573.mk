@@ -26,14 +26,6 @@ PRODUCT_BRAND := X573
 PRODUCT_MODEL := Hot S 3
 PRODUCT_MANUFACTURER := INFINIX MOBILITY LIMITED
 
- 
-
-# fastbootd
-PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.0-impl-mock \
-    fastbootd
-
 # HACK: Set vendor patch level
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.date.utc=1230768000
-    
