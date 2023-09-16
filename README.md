@@ -46,4 +46,4 @@ Video	|1080p@30fps
 
 ## Infinix-X573 Image
 
-![Infinix Hot S3/Infinix-X573](https://droidafrica.net/wp-content/uploads/2019/01/infinix-hot-s3-32gb-sandstone-black-3gb-ram-3-600x600.jpg "Infinix Hot S3/Infinix-X573")
+![Infinix Hot S3/Infinix-X573](https://skyhuppa.files.wordpress.com/2021/05/infinix-hot-s3-32gb-sandstone-black-3gb-ram-3-600x60028229-1.jpg "Infinix Hot S3/Infinix-X573")
