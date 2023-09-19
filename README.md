@@ -18,7 +18,7 @@ INFINIX HOT S3 (codenamed _"Infinix-X573"_) released in 2018
 
      ## Device specifications
 
- COMPOMENT | SPECIFICATION
+ COMPONENT | SPECIFICATION
 ----------:|:-------------------------
 NETWORK    | 
 Technology | GSM / HSPA / LTE
