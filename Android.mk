@@ -7,7 +7,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),HotX573)
+ifeq ($(TARGET_DEVICE),Infinix_X573)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
