@@ -26,7 +26,7 @@
 # Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
-LOCAL_PATH := device/infinix/HotX573
+LOCAL_PATH := device/infinix/Infinix_X573
 
 # API
 PRODUCT_SHIPPING_API_LEVEL := 28
