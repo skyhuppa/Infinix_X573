@@ -6,7 +6,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/twrp_HotX573.mk
+    $(LOCAL_DIR)/twrp_Infinix_X573.mk
 
     COMMON_LUNCH_CHOICES := \
-       twrp_HotX573-eng
+       twrp_Infinix_X573-eng
