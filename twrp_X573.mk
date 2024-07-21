@@ -11,7 +11,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 # $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
 # Inherit some common Omni stuff.
- $(call inherit-product, vendor/twrp/config/common.mk)
+# $(call inherit-product, vendor/twrp/config/common.mk)
 
 # Inherit from mojito device
 $(call inherit-product, device/infinix/X573/device.mk)
