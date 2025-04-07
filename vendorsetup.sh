@@ -45,7 +45,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 #	export FOX_AB_DEVICE=1
   
 	# export OF_KEEP_FORCED_ENCRYPTION=1
-    export OF_DONT_PATCH_ON_FRESH_INSTALLATION=1
+        export OF_DONT_PATCH_ON_FRESH_INSTALLATION=1
 	export OF_DONT_PATCH_ENCRYPTED_DEVICE=1
 	export OF_KEEP_DM_VERITY_FORCED_ENCRYPTION=1
 	export OF_SKIP_FBE_DECRYPTION_SDKVERSION=34 # Don't try to decrypt A14(?)
@@ -57,13 +57,13 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export OF_STATUS_INDENT_RIGHT=48
   	export OF_HIDE_NOTCH=1
 	export OF_CLOCK_POS=1
-    export OF_ENABLE_LPTOOLS=1
+        export OF_ENABLE_LPTOOLS=1
 	export OF_ALLOW_DISABLE_NAVBAR=0
-    export OF_USE_MAGISKBOOT=1
+        export OF_USE_MAGISKBOOT=1
 	export OF_USE_MAGISKBOOT_FOR_ALL_PATCHES=1
 	export OF_DONT_PATCH_ENCRYPTED_DEVICE=1
 	export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
-    export FOX_BUGGED_AOSP_ARB_WORKAROUND="1546300800" # Tue Jan 1 2019 00:00:00 GMT
+        export FOX_BUGGED_AOSP_ARB_WORKAROUND="1546300800" # Tue Jan 1 2019 00:00:00 GMT
 	export OF_NO_TREBLE_COMPATIBILITY_CHECK=1
 	# export OF_FORCE_MAGISKBOOT_BOOT_PATCH_MIUI=1; # if you disable this, then enable the next line
 	# export FOX_VIRTUAL_AB_DEVICE=1
@@ -99,10 +99,10 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1
 
 	# -- add settings for R11 --
-    export OF_MAINTAINER=Skyhuppa
-    export FOX_BUILD_TYPE="Stable"
+        export OF_MAINTAINER=Skyhuppa
+        export FOX_BUILD_TYPE="Stable"
 	export FOX_VERSION="R11.1_1"
-    export FOX_VARIANT=A12.1
+        export FOX_VARIANT=A12.1
 	export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
 	export OF_QUICK_BACKUP_LIST="/boot;/data;"
 	# -- end R11 settings --
