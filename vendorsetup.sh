@@ -36,6 +36,7 @@ fi
 
 if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
    	export TW_DEFAULT_LANGUAGE="en"
+	export FOX_ENABLE_APP_MANAGER=1
 	export LC_ALL="C"
  	export ALLOW_MISSING_DEPENDENCIES=true
   	export TARGET_DEVICE_ALT="X573"
@@ -44,7 +45,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 #	export FOX_AB_DEVICE=1
   
 	# export OF_KEEP_FORCED_ENCRYPTION=1
-        export OF_DONT_PATCH_ON_FRESH_INSTALLATION=1
+    export OF_DONT_PATCH_ON_FRESH_INSTALLATION=1
 	export OF_DONT_PATCH_ENCRYPTED_DEVICE=1
 	export OF_KEEP_DM_VERITY_FORCED_ENCRYPTION=1
 	export OF_SKIP_FBE_DECRYPTION_SDKVERSION=34 # Don't try to decrypt A14(?)
@@ -56,15 +57,16 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export OF_STATUS_INDENT_RIGHT=48
   	export OF_HIDE_NOTCH=1
 	export OF_CLOCK_POS=1
-        export OF_ENABLE_LPTOOLS=1
+    export OF_ENABLE_LPTOOLS=1
 	export OF_ALLOW_DISABLE_NAVBAR=0
-        export OF_USE_MAGISKBOOT=1
+    export OF_USE_MAGISKBOOT=1
 	export OF_USE_MAGISKBOOT_FOR_ALL_PATCHES=1
 	export OF_DONT_PATCH_ENCRYPTED_DEVICE=1
 	export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
-        export FOX_BUGGED_AOSP_ARB_WORKAROUND="1546300800" # Tue Jan 1 2019 00:00:00 GMT
+    export FOX_BUGGED_AOSP_ARB_WORKAROUND="1546300800" # Tue Jan 1 2019 00:00:00 GMT
 	export OF_NO_TREBLE_COMPATIBILITY_CHECK=1
-	#export OF_FORCE_MAGISKBOOT_BOOT_PATCH_MIUI=1; # if you disable this, then enable the next line
+	# export OF_FORCE_MAGISKBOOT_BOOT_PATCH_MIUI=1; # if you disable this, then enable the next line
+	# export FOX_VIRTUAL_AB_DEVICE=1
 	export OF_NO_MIUI_PATCH_WARNING=1
 	export OF_USE_GREEN_LED=
 #       export OF_FL_PATH1="/tmp/flashlight" # See /init.recovery.qcom.rc for more information
@@ -73,31 +75,58 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
         export OF_USE_LZMA_COMPRESSION=1
 
 	# use magisk 21.4 for the magisk addon
-	#export FOX_USE_SPECIFIC_MAGISK_ZIP=~/Magisk/Magisk-21.4.zip
+	# export FOX_USE_SPECIFIC_MAGISK_ZIP=~/Magisk/Magisk-v28.1.zip
 
 	export FOX_USE_BASH_SHELL=1
 	export FOX_ASH_IS_BASH=1
+	export FOX_BASH_TO_SYSTEM_BIN=1
 	export FOX_USE_NANO_EDITOR=1
 	export FOX_USE_TAR_BINARY=1
 	export FOX_USE_ZIP_BINARY=1
+	export FOX_USE_LZ4_BINARY=1
 	export FOX_USE_SED_BINARY=1
+	export FOX_USE_ZSTD_BINARY=1
 	export FOX_USE_XZ_UTILS=1
-	export FOX_REPLACE_BUSYBOX_PS=1
+	# export FOX_REPLACE_BUSYBOX_PS=1
+	export FOX_VANILLA_BUILD=1
+	export FOX_USE_BUSYBOX_BINARY=1
 	export OF_USE_NEW_MAGISKBOOT=1
-	#export FOX_BUGGED_AOSP_ARB_WORKAROUND="1510672800"; # Tue Nov 14 15:20:00 GMT 2017
+	# export FOX_DELETE_INITD_ADDON=1
+	# export FOX_BUGGED_AOSP_ARB_WORKAROUND="1510672800"; # Tue Nov 14 15:20:00 GMT 2017
 
 	# OTA for custom ROMs
 #	export OF_SUPPORT_ALL_BLOCK_OTA_UPDATES=1
 	export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1
 
 	# -- add settings for R11 --
-        export OF_MAINTAINER=Skyhuppa
-        export FOX_BUILD_TYPE="Stable"
+    export OF_MAINTAINER=Skyhuppa
+    export FOX_BUILD_TYPE="Stable"
 	export FOX_VERSION="R11.1_1"
-        export FOX_VARIANT=A12.1
+    export FOX_VARIANT=A12.1
 	export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
 	export OF_QUICK_BACKUP_LIST="/boot;/data;"
 	# -- end R11 settings --
+
+	# make all builds dynamic
+	# export FOX_USE_DYNAMIC_PARTITIONS=1
+	# if [ "$FOX_USE_DYNAMIC_PARTITIONS" = "1" ]; then
+	#	export FOX_RECOVERY_SYSTEM_PARTITION="/dev/block/mapper/system"
+	#	export FOX_RECOVERY_VENDOR_PARTITION="/dev/block/mapper/vendor"
+	#	export FOX_VARIANT="HWe"; # this will support only hardware encryption
+	# fi
+
+	# instruct magiskboot v24+ to always patch the vbmeta header when patching the recovery/boot image; do *not* remove!
+    #    export FOX_PATCH_VBMETA_FLAG="1"
+
+	# vendor_boot-as-recovery
+	# if [ "$FOX_VENDOR_BOOT_RECOVERY" = "1" ]; then
+	#   export FOX_VARIANT="vBaR"
+	#fi
+#else
+#	if [ -z "$FOX_BUILD_DEVICE" -a -z "$BASH_SOURCE" ]; then
+#		echo "I: This script requires bash. Not processing the $FDEVICE $(basename $0)"
+#	fi
+#fi
 
 	# let's see what are our build VARs
 	if [ -n "$FOX_BUILD_LOG_FILE" -a -f "$FOX_BUILD_LOG_FILE" ]; then
