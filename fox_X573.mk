@@ -21,8 +21,8 @@
 # OrangeFox-specific settings #
 
 # screen
-OF_SCREEN_H := 1530
-OF_STATUS_H := 73
+OF_SCREEN_H := 1440
+OF_STATUS_H := 170
 OF_STATUS_INDENT_LEFT := 64
 OF_STATUS_INDENT_RIGHT := 48
 
