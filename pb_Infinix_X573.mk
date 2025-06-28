@@ -23,6 +23,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 # Inherit some common PBRP stuff.
 $(call inherit-product, vendor/pb/config/common.mk)
 
+# Inherit device configuration
+$(call inherit-product, device/Infinix/Infinix_X573/device.mk)
+
 # PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,device/infinix/Infinix_X573/recovery/root,recovery/root)
 # $(LOCAL_PATH)/prebuilt/dtb:dtb.img
  
