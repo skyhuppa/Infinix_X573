@@ -23,7 +23,7 @@ $(call inherit-product, vendor/pb/config/common.mk)
  
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := Infinix_X573
-PRODUCT_NAME := bp_Infinix_X573
+PRODUCT_NAME := pb_Infinix_X573
 PRODUCT_BRAND := X573
 PRODUCT_MODEL := Hot S 3
 PRODUCT_MANUFACTURER := INFINIX MOBILITY LIMITED
