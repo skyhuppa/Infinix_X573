@@ -18,10 +18,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 # $(call inherit-product, $(SRC_TARGET_DIR)/product/core_minimal.mk)
 
 # Inherit some common Omni stuff.
-# $(call inherit-product, vendor/twrp/config/common.mk)
+ $(call inherit-product, vendor/twrp/config/common.mk)
 
 # Inherit some common PBRP stuff.
-$(call inherit-product, vendor/pb/config/common.mk)
+# $(call inherit-product, vendor/pb/config/common.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/infinix/Infinix_X573/device.mk)
@@ -31,7 +31,7 @@ $(call inherit-product, device/infinix/Infinix_X573/device.mk)
  
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := Infinix_X573
-PRODUCT_NAME := pb_Infinix_X573
+PRODUCT_NAME := twrp_Infinix_X573
 PRODUCT_BRAND := X573
 PRODUCT_MODEL := Hot S 3
 PRODUCT_MANUFACTURER := INFINIX MOBILITY LIMITED
