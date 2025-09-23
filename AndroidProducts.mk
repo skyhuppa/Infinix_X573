@@ -9,4 +9,6 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/pb_Infinix_X573.mk
 
     COMMON_LUNCH_CHOICES := \
+       pb_Infinix_X573-user \
+       pb_Infinix_X573-userdebug \
        pb_Infinix_X573-eng
