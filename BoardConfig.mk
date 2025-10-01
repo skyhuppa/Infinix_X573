@@ -154,13 +154,13 @@ TW_INCLUDE_FUSE_NTFS := true
 # VENDOR_SECURITY_PATCH := 2099-12-31
 # PLATFORM_VERSION := 16.1.0
 
-# PBRP Build Flags
+# PB Build Flags
 PB_DISABLE_DEFAULT_DM_VERITY := true
 PB_DISABLE_DEFAULT_PATCH_AVB2 := true
-
-# PB FLAGS
 PB_TORCH_PATH := "/sys/devices/virtual/camera/flash/rear_flash"
 PB_TORCH_MAX_BRIGHTNESS := 1
+# PB_OFFICIAL := true
+BETA_BUILD := true
 
 # Encryption
 BOARD_USES_METADATA_PARTITION := true
